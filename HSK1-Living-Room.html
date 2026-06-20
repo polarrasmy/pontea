@@ -7,6 +7,8 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#15120e">
 <link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@400..700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.0/dist/hanzi-writer.min.js" defer></script>
 <style>
 :root{--bg:#f4f3ef;--ink:#15120e;--soft:#e8e5de;--line:#d6d2c8;--dim:#aaa49a}
@@ -37,7 +39,7 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI",
 .sheet{background:var(--bg);border:1px solid var(--line);border-radius:22px;max-width:440px;width:100%;max-height:92vh;overflow:auto;padding:18px 20px;text-align:center}
 .sheetTop{display:flex;justify-content:flex-end}
 .x{border:none;background:transparent;color:var(--dim);font-size:20px;cursor:pointer}
-.bigObj{font-size:66px;line-height:1;margin:0 0 6px;animation:rise .45s ease}
+.bigObj{font-family:"Noto Emoji",sans-serif;font-size:62px;line-height:1;margin:0 0 6px;animation:rise .45s ease}
 @keyframes rise{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
 .han{font-size:42px;font-weight:600;line-height:1.1}
 .pin{font-size:20px;direction:ltr;margin-top:3px}
@@ -92,7 +94,7 @@ function say(t){try{var u=new SpeechSynthesisUtterance(t);u.lang="zh-CN";u.rate=
 function el(t,c){var e=document.createElement(t);if(c)e.className=c;return e;}
 function S(){return STR[L];}
 function pin(s){return s.map(function(x){return x[0];}).join(" ");}
-function setObj(node,item,sizes){if(item.e){node.textContent=item.e;node.style.fontSize=sizes[0]+"px";return;}var h=item.h;node.textContent=h;var n=h.length;var fs=n>=4?sizes[4]:n===3?sizes[3]:n===2?sizes[2]:sizes[1];node.style.fontSize=fs+"px";}
+function setObj(node,item,sizes){if(item.e){node.textContent=item.e;node.style.fontFamily='"Noto Emoji",sans-serif';node.style.fontSize=sizes[0]+"px";return;}node.style.fontFamily="";var h=item.h;node.textContent=h;var n=h.length;var fs=n>=4?sizes[4]:n===3?sizes[3]:n===2?sizes[2]:sizes[1];node.style.fontSize=fs+"px";}
 function dueSet(){var arr=Array.from(owned);var out={};var dd=(new Date()).getDate()%5;for(var i=0;i<arr.length;i++){if(i%5===dd)out[arr[i]]=1;}return out;}
 
 function hill(tone){var p;if(tone===1)p="M5,12 L55,12";else if(tone===2)p="M6,52 L54,12";else if(tone===3)p="M6,26 C18,60 42,60 54,22";else if(tone===4)p="M6,10 L54,56";else p="M26,33 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0";
