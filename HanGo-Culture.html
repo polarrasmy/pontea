@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>汉 HanGo · الثقافة — Culture</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#15120e">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f3ef;--ink:#15120e;--soft:#e8e5de;--line:#d6d2c8;--dim:#9c968c}
+@media (prefers-color-scheme:dark){:root{--bg:#100f0d;--ink:#ededea;--soft:#1b1a17;--line:#34302b;--dim:#6a655d}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI","Noto Sans Arabic",sans-serif;line-height:1.7}
+.wrap{max-width:680px;margin:0 auto;padding:16px 14px 60px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.brand{font-size:18px;font-weight:600}
+.lgs{display:flex;gap:5px}
+.lg{font-size:12px;padding:5px 10px;border:1px solid var(--line);background:transparent;color:var(--dim);border-radius:20px;cursor:pointer;text-decoration:none}
+.lg.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hint{text-align:center;color:var(--dim);font-size:13px;margin:6px 0 16px}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}
+.chead{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.em{font-family:"Noto Emoji",sans-serif;font-size:34px;line-height:1}
+.tt{font-size:19px;font-weight:600}
+.body{font-size:15px}
+.terms{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.term{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--bg);border-radius:20px;padding:6px 12px;cursor:pointer;font-size:14px}
+.term:hover{border-color:var(--ink)}
+.term .h{font-size:16px}
+.term .p{color:var(--dim);direction:ltr;font-size:13px}
+.pop{position:fixed;inset:0;background:rgba(20,17,13,.5);display:none;align-items:flex-end;justify-content:center;z-index:50}
+.popbox{background:var(--bg);border:1px solid var(--line);border-radius:20px 20px 0 0;width:100%;max-width:680px;padding:20px 18px 26px;text-align:center}
+.pop .ph{font-size:46px;font-weight:600}.pop .pp{font-size:20px;direction:ltr;margin-top:2px}.pop .pm{font-size:18px;margin-top:2px}
+.pop .pact{margin-top:12px;display:flex;gap:8px;justify-content:center}
+.btn{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:12px;padding:9px 14px;font-size:14px;cursor:pointer;font-family:inherit}
+.foot{text-align:center;color:var(--dim);font-size:12px;margin-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+<div class="brand"><span>汉 HanGo</span> · <span id="tt"></span></div>
+<div class="lgs" id="lgs"><button class="lg" data-l="ar">ع</button><button class="lg" data-l="en">EN</button><button class="lg" data-l="fr">FR</button><a class="lg" href="index.html" title="home">⌂</a></div>
+</div>
+<div class="hint" id="hint"></div>
+<div id="view"></div>
+<div class="foot" id="foot"></div>
+</div>
+<div class="pop" id="pop"><div class="popbox" id="popbox"></div></div>
+<script>
+var STR={
+ ar:{title:"الثقافة",hint:"ليه نتعلّم اللغة؟ عشان نفهم الناس. دوس على أي مصطلح تسمعه وتعرف معناه.",foot:"汉 HanGo · اللغة روحها الثقافة · أوفلاين"},
+ en:{title:"Culture",hint:"Why learn the language? To understand the people. Tap any term to hear it.",foot:"汉 HanGo · a language lives through its culture · offline"},
+ fr:{title:"Culture",hint:"Pourquoi apprendre la langue ? Pour comprendre les gens. Touche un terme pour l'écouter.",foot:"汉 HanGo · une langue vit par sa culture · hors ligne"},
+};
+var CULTURE=[
+ {em:"🧧",t:{ar:"رأس السنة الصينية",en:"Spring Festival",fr:"Fête du Printemps"},
+  b:{ar:"أهم عيد في الصين — العيلة كلها بتتجمّع، بيتعلّق اللون الأحمر، الكبار بيدّوا الصغار مظاريف حمرا فيها فلوس (هونغباو)، وبيقولوا «恭喜发财». الأسطورة إن وحش اسمه «نيان» بيخاف من الأحمر والصوت العالي.",en:"China's biggest holiday — families reunite, everything turns red, elders give children red envelopes of money (hongbao), and people say 'gongxi facai'. Legend says a monster called Nian fears red and loud noise.",fr:"La plus grande fête de Chine — réunions de famille, rouge partout, les aînés offrent des enveloppes rouges (hongbao), et on dit « gongxi facai ». La légende dit qu'un monstre, Nian, craint le rouge et le bruit."},
+  terms:[{h:"春节",p:"Chūnjié",ar:"عيد الربيع (رأس السنة)",en:"Spring Festival",fr:"Fête du Printemps"},{h:"红包",p:"hóngbāo",ar:"مظروف أحمر بفلوس",en:"red money envelope",fr:"enveloppe rouge"},{h:"福",p:"fú",ar:"بركة / حظ",en:"blessing / luck",fr:"bonheur / chance"},{h:"恭喜发财",p:"gōngxǐ fācái",ar:"كل سنة وانت بخير وغنى",en:"wishing you prosperity",fr:"prospérité à toi"}]},
+ {em:"🥟",t:{ar:"الأكل والمائدة",en:"Food & the table",fr:"La table"},
+  b:{ar:"الأكل في الصين بيتشارك — الأطباق في النص والكل بياخد. بياكلوا بالعِيدان، والزلابية (饺子) أكلة رأس السنة لأنها شكلها زي الفضة القديمة. أدب مهم: متغرزش عيدانك واقفة في الرز (شكلها زي البخور للموتى).",en:"Chinese meals are shared — dishes sit in the middle and everyone takes from them. People eat with chopsticks, and dumplings are a New Year dish because they look like old silver ingots. Key manners: never stick chopsticks upright in rice (it resembles incense for the dead).",fr:"Les repas chinois se partagent — les plats au centre, chacun se sert. On mange avec des baguettes ; les raviolis sont un plat du Nouvel An. Règle : ne plante jamais tes baguettes dans le riz (cela évoque l'encens des morts)."},
+  terms:[{h:"饺子",p:"jiǎozi",ar:"زلابية محشية",en:"dumplings",fr:"raviolis"},{h:"筷子",p:"kuàizi",ar:"عِيدان الأكل",en:"chopsticks",fr:"baguettes"},{h:"茶",p:"chá",ar:"شاي",en:"tea",fr:"thé"},{h:"干杯",p:"gānbēi",ar:"في صحتك! (نخب)",en:"cheers!",fr:"santé !"}]},
+ {em:"🐎",t:{ar:"أبراج المواليد",en:"The Zodiac",fr:"Le zodiaque"},
+  b:{ar:"١٢ حيوان، كل سنة ليها حيوان، وبيقولوا إن مولود السنة بياخد صفاتها. ٢٠٢٦ هي سنة الحصان. تسأل حد «属什么؟» يعني «إنت برجك إيه؟».",en:"Twelve animals; each year has one, and people say you take on its traits. 2026 is the Year of the Horse. You ask someone 'shu shenme?' — 'which sign are you?'",fr:"Douze animaux ; chaque année en a un. 2026 est l'année du Cheval. On demande « shu shenme ? » — « quel est ton signe ? »"},
+  terms:[{h:"生肖",p:"shēngxiào",ar:"أبراج المواليد",en:"zodiac",fr:"zodiaque"},{h:"马",p:"mǎ",ar:"حصان (٢٠٢٦)",en:"horse (2026)",fr:"cheval (2026)"},{h:"龙",p:"lóng",ar:"تنين (الأرقى)",en:"dragon (the noblest)",fr:"dragon"},{h:"属",p:"shǔ",ar:"يكون برجه",en:"to be born in (a sign)",fr:"être du signe"}]},
+ {em:"🍵",t:{ar:"ثقافة الشاي",en:"Tea culture",fr:"Le thé"},
+  b:{ar:"الشاي قلب الضيافة الصينية. تصبّ للأكبر منك الأول علامة احترام. وفيه طريقة فنية «غونغ فو تشا» بأكواب صغيرة. لو حد صبّ لك، تدقّ بصوابعك على الترابيزة شكر صامت.",en:"Tea is the heart of Chinese hospitality. You pour for elders first as a sign of respect. There's an artful style, 'gongfu cha', with tiny cups. If someone pours for you, tap two fingers on the table — a silent thank-you.",fr:"Le thé est au cœur de l'hospitalité chinoise. On sert d'abord les aînés par respect. Il existe un art, le « gongfu cha », à petites tasses. Si on te sert, tapote deux doigts sur la table — un merci silencieux."},
+  terms:[{h:"喝茶",p:"hē chá",ar:"يشرب شاي",en:"to drink tea",fr:"boire du thé"},{h:"茶馆",p:"cháguǎn",ar:"مقهى شاي",en:"teahouse",fr:"maison de thé"},{h:"礼貌",p:"lǐmào",ar:"أدب / احترام",en:"manners / politeness",fr:"politesse"}]},
+ {em:"✍️",t:{ar:"الحروف فن",en:"Characters as art",fr:"Les caractères, un art"},
+  b:{ar:"الحرف الصيني أصله صورة: 山 جبل، 木 شجرة، 日 شمس. والخط (书法) فن محترم زي الرسم. عشان كده ترتيب الشخطات مهم — مش بس شكل، ده إيقاع.",en:"A Chinese character began as a picture: 山 mountain, 木 tree, 日 sun. Calligraphy is a respected art like painting. That's why stroke order matters — it's not just shape, it's rhythm.",fr:"Un caractère chinois était d'abord une image : 山 montagne, 木 arbre, 日 soleil. La calligraphie est un art respecté. D'où l'importance de l'ordre des traits."},
+  terms:[{h:"汉字",p:"hànzì",ar:"الحروف الصينية",en:"Chinese characters",fr:"caractères chinois"},{h:"书法",p:"shūfǎ",ar:"فن الخط",en:"calligraphy",fr:"calligraphie"},{h:"山",p:"shān",ar:"جبل",en:"mountain",fr:"montagne"},{h:"日",p:"rì",ar:"شمس / يوم",en:"sun / day",fr:"soleil / jour"}]},
+ {em:"🥋",t:{ar:"الكونغ فو والفلسفة",en:"Kung fu & philosophy",fr:"Kung-fu & philosophie"},
+  b:{ar:"الكونغ فو مش ضرب بس — معناه «مهارة اتبنت بالصبر». وراه فلسفة التوازن والطاقة (气 تشي)، والتايجي بحركاته البطيئة. الاحترام للأستاذ (师傅) أساس.",en:"Kung fu isn't just fighting — it means 'skill earned through patience'. Behind it is a philosophy of balance and energy (qi), and tai chi's slow movements. Respect for the master (shifu) is central.",fr:"Le kung-fu n'est pas que du combat — cela signifie « une maîtrise acquise par la patience ». Derrière : une philosophie d'équilibre et d'énergie (qi). Le respect du maître (shifu) est essentiel."},
+  terms:[{h:"功夫",p:"gōngfu",ar:"كونغ فو / مهارة",en:"kung fu / skill",fr:"kung-fu / savoir-faire"},{h:"太极",p:"tàijí",ar:"تاي جي",en:"tai chi",fr:"tai-chi"},{h:"气",p:"qì",ar:"الطاقة / النَفَس",en:"energy / qi",fr:"énergie / qi"},{h:"师傅",p:"shīfu",ar:"المعلّم / الأسطى",en:"master",fr:"maître"}]},
+ {em:"🐪",t:{ar:"طريق الحرير — جسر مصر والصين",en:"The Silk Road — a bridge",fr:"La Route de la soie"},
+  b:{ar:"من آلاف السنين، طريق الحرير وصّل الصين بمصر والعالم العربي — حرير وورق وأفكار. حضارتان قديمتان اتقابلوا بالتجارة والاحترام. لحد دلوقتي القصة مكمّلة، وإنت جزء منها وانت بتتعلّم.",en:"For thousands of years the Silk Road linked China to Egypt and the Arab world — silk, paper, and ideas travelled it. Two ancient civilizations met through trade and respect. The story still continues — and you're part of it by learning.",fr:"Pendant des millénaires, la Route de la soie a relié la Chine à l'Égypte et au monde arabe. Deux civilisations anciennes se sont rencontrées par le commerce et le respect. L'histoire continue — et tu en fais partie en apprenant."},
+  terms:[{h:"丝绸之路",p:"sīchóu zhī lù",ar:"طريق الحرير",en:"the Silk Road",fr:"la Route de la soie"},{h:"文化",p:"wénhuà",ar:"ثقافة",en:"culture",fr:"culture"},{h:"朋友",p:"péngyou",ar:"صديق",en:"friend",fr:"ami"}]},
+];
+var L=(function(){try{return localStorage.getItem("hsk_lang")||"ar";}catch(e){return "ar";}})();
+function S(){return STR[L];}
+var voice=null;function lv(){var vs=speechSynthesis.getVoices();voice=vs.find(function(v){return /zh|chinese|ting|mei|yu|han/i.test(v.lang+" "+v.name)})||null;}
+lv();if(speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=lv;
+function say(t){try{var u=new SpeechSynthesisUtterance(t);u.lang="zh-CN";u.rate=0.82;if(voice)u.voice=voice;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+function el(t,c){var e=document.createElement(t);if(c)e.className=c;return e;}
+function popup(tm){var box=document.getElementById("popbox");box.textContent="";
+var ph=el("div","ph");ph.textContent=tm.h;box.appendChild(ph);
+var pp=el("div","pp");pp.textContent=tm.p;box.appendChild(pp);
+var pm=el("div","pm");pm.textContent=tm[L];box.appendChild(pm);
+var act=el("div","pact");var b1=el("button","btn");b1.textContent="🔊";b1.onclick=function(){say(tm.h);};var b2=el("button","btn");b2.textContent="✕";b2.onclick=closePop;act.appendChild(b1);act.appendChild(b2);box.appendChild(act);
+document.getElementById("pop").style.display="flex";say(tm.h);}
+function closePop(){document.getElementById("pop").style.display="none";}
+document.getElementById("pop").onclick=function(e){if(e.target===this)closePop();};
+function render(){var v=document.getElementById("view");v.textContent="";
+CULTURE.forEach(function(c){var card=el("div","card");
+var hd=el("div","chead");var em=el("div","em");em.textContent=c.em;var tt=el("div","tt");tt.textContent=c.t[L];hd.appendChild(em);hd.appendChild(tt);card.appendChild(hd);
+var b=el("div","body");b.textContent=c.b[L];card.appendChild(b);
+var tr=el("div","terms");c.terms.forEach(function(tm){var chip=el("div","term");var hh=el("span","h");hh.textContent=tm.h;var pp=el("span","p");pp.textContent=tm.p;chip.appendChild(hh);chip.appendChild(pp);chip.onclick=function(){popup(tm);};tr.appendChild(chip);});card.appendChild(tr);
+v.appendChild(card);});}
+function applyLang(){document.documentElement.lang=L;document.documentElement.dir=(L==="ar")?"rtl":"ltr";
+document.getElementById("tt").textContent=S().title;document.getElementById("hint").textContent=S().hint;document.getElementById("foot").textContent=S().foot;
+Array.prototype.forEach.call(document.querySelectorAll(".lg[data-l]"),function(b){b.classList.toggle("on",b.getAttribute("data-l")===L);});render();}
+Array.prototype.forEach.call(document.querySelectorAll(".lg[data-l]"),function(b){b.onclick=function(){L=b.getAttribute("data-l");try{localStorage.setItem("hsk_lang",L);}catch(e){}applyLang();};});
+if("serviceWorker" in navigator && location.protocol.indexOf("http")===0)navigator.serviceWorker.register("sw.js").catch(function(){});
+applyLang();
+</script>
+</body>
+</html>
